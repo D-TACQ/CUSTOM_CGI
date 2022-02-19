@@ -1,8 +1,8 @@
 #!/bin/sh
 
-fcgiwrap -s unix:/run/fcgiwrap
-chmod a+rw /run/fcgiwrap
+fcgiwrap -s unix:/run/fcgiwrap &
 killall nginx
+chmod a+rw /run/fcgiwrap
 nginx
 
 
