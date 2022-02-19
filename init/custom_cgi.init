@@ -1,0 +1,8 @@
+#!/bin/sh
+
+fcgiwrap -s unix:/run/fcgiwrap
+chmod a+rw /run/fcgiwrap
+killall nginx
+nginx
+
+

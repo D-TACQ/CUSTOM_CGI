@@ -1,0 +1,9 @@
+CUSTOM_CGI_README:
+
+acq400 now uses nginx for security reasons
+
+nginx supports fastcgi
+
+here we enable fcgiwrap to allow "slow cgi" with a shell script action
+
+

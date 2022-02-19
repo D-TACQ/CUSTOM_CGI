@@ -1,0 +1,26 @@
+#!/bin/bash
+# CUSTOM_CGI
+DC=$(date +%y%m%d%H%M)
+SEQ=99
+PKG=custom_cgi
+PACKAGES=../../PACKAGES
+
+rm -Rf opkg/*
+mkdir -p release \
+	opkg/etc \
+	opkg/usr/local/init \
+	opkg/var/www/cgi-bin \
+	
+
+
+cp init/* README* opkg/usr/local/init
+cp -a etc/* opkg/etc
+cp -a var/* opkg/var
+
+
+tar cvzf release/${SEQ}-${PKG}-${DC}.tgz -C opkg .
+ls -l release/${SEQ}-${PKG}-${DC}.tgz
+rm -f ${PACKAGES}/${SEQ}-${PKG}*
+echo custom release/${SEQ}-${PKG}-${DC}.tgz NOT part of release
+#cp release/${SEQ}-${PKG}-${DC}.tgz ${PACKAGES}
+
